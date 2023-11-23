@@ -1,3 +1,7 @@
+// Initialization
+const express = require('express');
+const app = express();
+
 require('dotenv').config();
 
 
@@ -27,3 +31,10 @@ mongoose.connect(connectionURL)
         console.error('Error connecting to MongoDB:', err.message);
     });
 
+
+
+
+// Strating Server on PORT 3000
+app.listen(3000, function () {
+    console.log("Server started at PORT: 3000");
+});
