@@ -9,9 +9,7 @@ const app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-// Models Exports
 const Note = require('./models/Note');
-
 
 // For securing the credintial of DB
 const username = process.env.DB_USER;
@@ -33,14 +31,10 @@ mongoose.connect(connectionURL)
 
         const noteRouter = require('./routes/Note');
         app.use("/notes", noteRouter);
-
     })
     .catch((err) => {
         console.error('Error connecting to MongoDB:', err.message);
     });
-
-
-
 
 // Strating Server on a PORT
 const PORT = process.env.PORT || 3000;
